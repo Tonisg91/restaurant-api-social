@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose')
-const bcrypt = require('bcryptjs')
 
 const userSchema = new Schema(
     {
@@ -20,6 +19,11 @@ const userSchema = new Schema(
             type: String,
             required: true,
             trim: true
+        },
+        email: {
+            type: String,
+            trim: true,
+            unique: true
         },
         lastname: {
             type: String
@@ -44,15 +48,6 @@ const userSchema = new Schema(
         versionKey: false
     }
 )
-
-userSchema.statics.encryptPassword = async (password) => {
-    const salt = bcrypt.genSaltSync(10)
-    return bcrypt.hashSync(password, salt)
-}
-
-userSchema.statics.comparePassword = async (receivedPassword, userPassword) => {
-    return bcrypt.compareSync(receivedPassword, userPassword)
-}
 
 userSchema.statics.toggleState = async (userId, updater) => {
     const instance = await model('User').findById(userId)
