@@ -1,0 +1,42 @@
+{
+  "name": "social-api",
+  "version": "1.0.0",
+  "description": "API Rest for users and companies",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node ./src",
+    "dev": "NODE_ENV=development nodemon ./src",
+    "lint": "eslint ./ --fix",
+    "test": "NODE_ENV=test jest --verbose ",
+    "test:silent": "NODE_ENV=test jest --verbose --silent",
+    "test:watch": "npm run test -- --watch",
+    "prepare": "husky install"
+  },
+  "author": "Toni Sanchez",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.0.2",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.4.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
+}
