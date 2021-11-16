@@ -28,4 +28,4 @@ exports.comparePassword = (pwd1, pwd2) => bcrypt.compareSync(pwd1, pwd2)
  * @returns {String}
  */
 exports.encodeToken = (id) =>
-    jwt.sign(id, process.env.JWT_KEY, { expiresIn: '365d' })
+    jwt.sign({ id }, process.env.JWT_KEY, { expiresIn: '365d' })

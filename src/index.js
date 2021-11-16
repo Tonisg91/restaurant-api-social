@@ -17,8 +17,13 @@ app.use(
     })
 )
 app.use(express.urlencoded({ extended: false }))
-
 app.use(logger('dev'))
+
+const userRoutes = require('./components/Users/routes')
+const companyRoutes = require('./components/Companies/routes')
+
+app.use('/api/users', userRoutes)
+app.use('/api/companies', companyRoutes)
 
 app.listen(PORT, () => {
     console.log('Listen at port: ', PORT)

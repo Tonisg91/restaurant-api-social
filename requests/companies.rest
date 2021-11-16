@@ -1,0 +1,19 @@
+@api = http://localhost:5000/api/companies
+@company = 61940e26dc0f9e7603abdf49
+## POST
+POST {{api}}/init-company
+Content-Type: application/json
+
+{
+  "user": {
+    "dni": "1Z",
+    "email": "test@test.com",
+    "name": "Toni"
+  },
+  "CIF": "1Z",
+  "email": "taggliatella@test.com",
+  "name": "La Taggliatella"
+}
+
+### GET get company by id
+GET {{api}}/{{company}}

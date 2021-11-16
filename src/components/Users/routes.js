@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
 
         if (!passwordMatch) return res.status(400).send('Wrong password')
 
-        const { passwordHash, ...data } = user
+        const { passwordHash, _id, ...data } = user
 
         const responseData = {
             token: encodeToken(user._id),
@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
         return res.status(500).json({ message: 'MongoDB error', error })
     }
 })
-router.put('/:id')
-router.patch('/:id', (req, res) => {})
+// router.put('/:id')
+// router.patch('/:id', (req, res) => {})
 
 module.exports = router
